@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:41:47 by jbelless          #+#    #+#             */
-/*   Updated: 2015/11/30 12:14:30 by jbelless         ###   ########.fr       */
+/*   Updated: 2015/12/03 11:30:08 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 	t_list	*res;
 
 	res = NULL;
+	if (lst == NULL || f == NULL)
+		return (NULL);
 	res = ft_lstnew(f(lst)->content, f(lst)->content_size);
 	if (!res)
 		return (NULL);
