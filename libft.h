@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:48:05 by jbelless          #+#    #+#             */
-/*   Updated: 2015/12/03 08:57:52 by jbelless         ###   ########.fr       */
+/*   Updated: 2015/12/03 12:35:10 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *));
 void			ft_lstaddback(t_list **alst, t_list *newlst);
 size_t			ft_lstlen(t_list *lst);
+char			**ft_lststr_to_tab(t_list *lst);
 
 #endif

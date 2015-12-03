@@ -6,7 +6,7 @@
 #    By: jbelless <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 08:56:13 by jbelless          #+#    #+#              #
-#    Updated: 2015/12/03 08:57:43 by jbelless         ###   ########.fr        #
+#    Updated: 2015/12/03 12:35:39 by jbelless         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRCS = 	ft_atoi.c \
 		ft_lstmap.c \
 		ft_lstaddback.c \
 		ft_lstlen.c \
+		ft_lststr_to_tab.c
 
 OBJS = $(SRCS:.c=.o)
 

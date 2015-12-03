@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 12:01:38 by jbelless          #+#    #+#             */
-/*   Updated: 2015/12/03 11:18:12 by jbelless         ###   ########.fr       */
+/*   Updated: 2015/12/03 12:39:46 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -612,6 +612,39 @@ int	main(void)
 	ft_putstr("\ntest lstlen :\n");
 	ft_putnbr(ft_lstlen(lst1));
 	ft_putstr(" = 3\n");
+
+
+	//test ft_lstaddback
+	ft_putstr("\n test lstotab ;\n");
+	char str70[] = "lstotab ";
+	char str71[] = "ok ";
+	char str72[] = "si cette ";
+	char str73[] = "phrase ";
+	char str74[] = "s'affiche 2X.\n";
+	char **tab1;
+
+	t_list	*lst70 = ft_lstnew(&str70, sizeof(str70));
+	t_list	*lst71 = ft_lstnew(&str71, sizeof(str71));
+	t_list	*lst72 = ft_lstnew(&str72, sizeof(str72));
+	t_list	*lst73 = ft_lstnew(&str73, sizeof(str73));
+	t_list	*lst74 = ft_lstnew(&str74, sizeof(str74));
+	ft_lstaddback(&lst70, lst71);
+	ft_lstaddback(&lst70, lst72);
+	ft_lstaddback(&lst70, lst73);
+	ft_lstaddback(&lst70, lst74);
+	tmp = lst70;
+	while (tmp)
+	{
+		ft_putstr((char*)(tmp->content));
+		tmp = tmp->next;
+	}
+	tab1 = ft_lststr_to_tab(lst70);
+	i = 0;	
+	while (tab1[i])
+	{
+		ft_putstr((char*)tab1[i]);
+		i++;
+	}
 
 
 
