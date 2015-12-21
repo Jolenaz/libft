@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 14:20:18 by jbelless          #+#    #+#             */
-/*   Updated: 2015/11/25 14:30:35 by jbelless         ###   ########.fr       */
+/*   Updated: 2015/12/21 10:59:11 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnew(size_t size)
 
 	str = NULL;
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size);
+	str = (char*)malloc(sizeof(char) * size + 1);
 	if (str == NULL)
 		return (NULL);
 	while (i < size)
@@ -27,5 +27,6 @@ char	*ft_strnew(size_t size)
 		str[i] = 0;
 		i++;
 	}
+	str[size] = 0;
 	return (str);
 }
