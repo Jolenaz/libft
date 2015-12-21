@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:48:05 by jbelless          #+#    #+#             */
-/*   Updated: 2015/12/03 12:35:10 by jbelless         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:08:21 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+int				get_next_line(const int fd, char **line);
+
+typedef struct	s_doc
+{
+	int				filed;
+	char			*rest;
+	struct s_doc	*next;
+}				t_doc;
 
 typedef struct	s_list
 {
