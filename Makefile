@@ -6,13 +6,16 @@
 #    By: jbelless <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 08:56:13 by jbelless          #+#    #+#              #
-#    Updated: 2015/12/03 12:35:39 by jbelless         ###   ########.fr        #
+#    Updated: 2015/12/21 13:57:17 by jbelless         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = 	ft_atoi.c \
+SRCS_PATH = ./srcs/
+INC_PATH = ./include/
+
+SRCS_NAME  = 	ft_atoi.c \
 		ft_bzero.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
@@ -74,7 +77,9 @@ SRCS = 	ft_atoi.c \
 		ft_lstlen.c \
 		ft_lststr_to_tab.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS_NAME:.c=.o)
+
+SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -85,7 +90,7 @@ $(NAME) : $(OBJS)
 	@ranlib $(NAME)
 
 $(OBJS) : 
-	@gcc $(CFLAGS) -c $(SRCS)
+	@gcc $(CFLAGS) -c $(SRCS) -I $(INC_PATH)
 
 clean :
 	@rm -rf $(OBJS)
