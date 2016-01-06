@@ -6,14 +6,12 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 12:44:26 by jbelless          #+#    #+#             */
-/*   Updated: 2015/12/21 14:09:39 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/01/05 15:17:26 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <sys/types.h>
-#include <sys/uio.h>
-#define BUFF_SIZE 1024
+#include "get_next_line.h"
+#include <stdio.h>
 
 static int	ft_cop(char **str1, char **line, char **str2)
 {
@@ -26,7 +24,8 @@ static int	ft_cop(char **str1, char **line, char **str2)
 		return (-1);
 	ft_strdel(line);
 	*line = *vid;
-	free(*str2);
+	if (str2 != str1)
+		free(*str2);
 	if ((*str2 = ft_strdup(ft_strchr(*str1, '\0') + 1)) == NULL)
 		return (-1);
 	return (1);
@@ -71,6 +70,11 @@ static int	read_get_next_line(const int fd, char **line, char **rest)
 		return (-1);
 	if (norme(fd, line, rest, &tete) == 1)
 		return (1);
+	else if (*rest[0] || *line[0])
+	{
+		free(*rest);
+		return (1);
+	}
 	return (tete);
 }
 
