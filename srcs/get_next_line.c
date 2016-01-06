@@ -6,12 +6,11 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 12:44:26 by jbelless          #+#    #+#             */
-/*   Updated: 2016/01/05 15:17:26 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/01/06 11:25:02 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 static int	ft_cop(char **str1, char **line, char **str2)
 {
