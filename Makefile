@@ -95,7 +95,7 @@ FTPRINTF_SRC = $(addprefix srcs/ft_printf/, $(FTPRINTF_SRCS))
 
 OBJ_NAME = $(FTPRINTF_SRC:.c=.o) $(LIB_SRC:.c=.o)
 
-SRC = $($(LIB_SRC) $(FTPRINTF_SRC))
+SRC = $(LIB_SRC) $(FTPRINTF_SRC)
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 INC = $(addprefix -I, $(INC_PATH))
@@ -106,7 +106,7 @@ INC = $(addprefix -I, $(INC_PATH))
 all: $(NAME)
 
 #	linking
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+$(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
 	@$(call cmd_color,$(LINK_COLOR),$(CC) $(CFLAGS) $(INC) -o $@ -c $<)
 
