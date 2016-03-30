@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:29:59 by jbelless          #+#    #+#             */
-/*   Updated: 2016/01/06 11:11:22 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/25 10:44:49 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	int i;
 
+	i = 0;
 	if (str == NULL)
 		return (0);
-	i = 0;
 	while (str[i])
 		i++;
-	return (i);
+	return ((size_t)i);
 }

@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:48:05 by jbelless          #+#    #+#             */
-/*   Updated: 2015/12/21 14:08:21 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:29:29 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 int				get_next_line(const int fd, char **line);
 
@@ -40,6 +41,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlen(const char *str);
+size_t			ft_strclen(char c, const char *str);
 char			*ft_strdup(const char *src);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
@@ -52,7 +54,8 @@ char			*ft_strstr(const char *s1, const char *s2);
 char			*ft_strnstr(const char *s1, const char *s2, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-int				ft_atoi(const char *s1);
+int				ft_atoi(const char *s);
+double			ft_atof(const char *s);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -93,5 +96,11 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *));
 void			ft_lstaddback(t_list **alst, t_list *newlst);
 size_t			ft_lstlen(t_list *lst);
 char			**ft_lststr_to_tab(t_list *lst);
+int				ft_power(int a, int b);
+double			ft_fpower(double a, int b);
+int				ft_singleton(int i);
+char			*ft_itoa_base(long long int i, int base);
+char			*ft_itoa_base_ul(unsigned long i, int base);
+int				ft_printf(const char *format, ...);
 
 #endif

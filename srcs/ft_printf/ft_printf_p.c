@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 08:54:56 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/24 10:35:31 by jbelless         ###   ########.fr       */
+/*   Created: 2016/03/21 15:18:37 by jbelless          #+#    #+#             */
+/*   Updated: 2016/03/29 15:33:15 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr(char const *str)
+void	ft_printf_p(t_stu *stu)
 {
-	int i;
+	char *str;
+	char *nb;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	nb = ft_itoa_base_ul((unsigned long)va_arg(stu->ap, void *), 16);
+	str = nb;
+	if (stu->prcs >= 0)
+		stu->flag = stu->flag & ~ZEROFLAG;
+	stu->flag = stu->flag & ~PLUSFLAG;
+	stu->flag = stu->flag & ~ESPFLAG;
+	ft_print_flag(stu, str, 0);
+	free(nb);
 }

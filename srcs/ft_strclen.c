@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 08:54:56 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/24 10:35:31 by jbelless         ###   ########.fr       */
+/*   Created: 2016/03/02 09:06:48 by jbelless          #+#    #+#             */
+/*   Updated: 2016/03/02 09:06:50 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+size_t	ft_strclen(char c, const char *str)
 {
-	int i;
+	char	*tmp;
+	size_t	res;
 
-	i = 0;
-	while (str[i] != '\0')
+	tmp = (char *)str;
+	res = 0;
+	if (str == NULL)
+		return (0);
+	while (*tmp && *tmp != c)
 	{
-		ft_putchar(str[i]);
-		i++;
+		tmp++;
+		res++;
 	}
+	return (res);
 }

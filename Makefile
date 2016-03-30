@@ -1,102 +1,142 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jbelless <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/26 08:56:13 by jbelless          #+#    #+#              #
-#    Updated: 2015/12/21 14:10:25 by jbelless         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 
-SRCS_PATH = ./srcs/
-INC_PATH = ./include/
+#==============#
+#_- Compiler -_#
+#==============#
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
+RM = rm -rf
 
-SRCS_NAME  = 	ft_atoi.c \
-		ft_bzero.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memalloc.c \
-		ft_memccpy.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memdel.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar.c \
-		ft_putchar_fd.c \
-		ft_putendl.c \
-		ft_putendl_fd.c \
-		ft_putnbr.c \
-		ft_putnbr_fd.c \
-		ft_putstr.c \
-		ft_putstr_fd.c \
-		ft_strcat.c \
-		ft_strchr.c \
-		ft_strclr.c \
-		ft_strcmp.c \
-		ft_strcpy.c \
-		ft_strdel.c \
-		ft_strdup.c \
-		ft_strlcat.c \
-		ft_strncmp.c \
-		ft_strlen.c \
-		ft_strncat.c \
-		ft_strncpy.c \
-		ft_strnew.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_strstr.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strmap.c \
-		ft_strmapi.c \
-		ft_strequ.c \
-		ft_strnequ.c \
-		ft_strsub.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_strsplit.c \
-		ft_lstnew.c \
-		ft_lstdelone.c \
-		ft_lstdel.c \
-		ft_lstadd.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		ft_lstaddback.c \
-		ft_lstlen.c \
-		ft_lststr_to_tab.c \
-		get_next_line.c
+#====================#
+#_- Programes Path -_#
+#====================#
+OBJ_PATH = ./objs/
+INC_PATH = ./includes/
 
-OBJS = $(SRCS_NAME:.c=.o)
+#===========#
+#_- Color -_#
+#===========#
 
-SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
+# color #
+# red = 9
+# hard_red = 196
+# orange = 214
+# violet = 140
+# green = 47
 
-CFLAGS = -Wall -Werror -Wextra
+TITLE_COLOR = 214
+CLEAN_COLOR = 9
+LINK_COLOR = 47
+OBJ_COLOR = 47
 
+MAKE_COLOR = 47
+MAKE_ALREADY = 140
+MAKE_FAIL = 9
+
+NORME_COLOR = 47
+NORME_COLOR_ERR = 9
+NORME_COLOR_WAR = 196
+
+#==============#
+#_- Fonction -_#
+#==============#
+
+cmd_make = echo "\033[38;5;$(MAKE_COLOR)m$(MAKE) $(1)\033[0m"; \
+		   $(MAKE) $(1)
+
+cmd_color = echo "\033[38;5;$(1)m$(2)\033[0m"; \
+			$(2)
+
+put_title = echo "\033[38;5;$(TITLE_COLOR)m[ $(1) ]\033[0m"
+
+#==================#
+#_- Source Files -_#
+#==================#
+
+FTPRINTF_SRCS = ft_printf.c \
+		   ft_printf_parser.c \
+		   ft_printf_s.c \
+		   ft_printf_d.c \
+		   ft_printf_p.c \
+		   ft_printf_x.c \
+		   ft_printf_grx.c \
+		   ft_printf_o.c \
+		   ft_printf_u.c \
+		   ft_printf_c.c \
+		   ft_printf_grd.c \
+		   ft_printf_gro.c \
+		   ft_printf_gru.c \
+		   ft_printf_grc.c \
+		   ft_printf_grs.c \
+		   ft_print_flag.c \
+
+LIBFT_SRCS = ft_atof.c ft_lstmap.c ft_putstr.c ft_strmapi.c \
+			ft_atoi.c ft_lstnew.c ft_putstr_fd.c ft_strncat.c \
+			ft_bzero.c ft_lststr_to_tab.c ft_singleton.c ft_strncmp.c \
+			ft_fpower.c ft_memalloc.c ft_strcat.c ft_strncpy.c \
+			ft_isalnum.c ft_memccpy.c ft_strchr.c ft_strnequ.c \
+			ft_isalpha.c ft_memchr.c ft_strclen.c ft_strnew.c \
+			ft_isascii.c ft_memcmp.c ft_strclr.c ft_strnstr.c \
+			ft_isdigit.c ft_memcpy.c ft_strcmp.c ft_strrchr.c \
+			ft_isprint.c ft_memdel.c ft_strcpy.c ft_strsplit.c \
+			ft_itoa.c ft_memmove.c ft_strdel.c ft_strstr.c \
+			ft_itoa_base.c ft_memset.c ft_strdup.c ft_strsub.c \
+			ft_itoa_base_ul.c ft_power.c ft_strequ.c ft_strtrim.c \
+			ft_lstadd.c ft_putchar.c ft_striter.c ft_tolower.c \
+			ft_lstaddback.c ft_putchar_fd.c ft_striteri.c ft_toupper.c \
+			ft_lstdel.c ft_putendl.c ft_strjoin.c get_next_line.c \
+			ft_lstdelone.c ft_putendl_fd.c ft_strlcat.c \
+			ft_lstiter.c ft_putnbr.c ft_strlen.c \
+			ft_lstlen.c ft_putnbr_fd.c ft_strmap.c \
+
+
+LIB_SRC = $(addprefix srcs/, $(LIBFT_SRCS))
+FTPRINTF_SRC = $(addprefix srcs/ft_printf/, $(FTPRINTF_SRCS))
+
+OBJ_NAME = $(FTPRINTF_SRC:.c=.o) $(LIB_SRC:.c=.o)
+
+SRC = $($(LIB_SRC) $(FTPRINTF_SRC))
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
+INC = $(addprefix -I, $(INC_PATH))
+
+#===========#
+#_- Rules -_#
+#===========#
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+#	linking
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(dir $@)
+	@$(call cmd_color,$(LINK_COLOR),$(CC) $(CFLAGS) $(INC) -o $@ -c $<)
 
-$(OBJS) : 
-	@gcc $(CFLAGS) -c $(SRCS) -I $(INC_PATH)
+#	preLinking
+$(OBJ_PATH):
+	@$(call put_title,Linking)
 
-clean :
-	@rm -rf $(OBJS)
+#	Object Compiation
+$(NAME): $(OBJ_PATH) $(OBJ)
+	@$(call put_title,Compilation)
+	@$(call cmd_color,$(OBJ_COLOR),ar rc $@ $(OBJ))
+	@$(call cmd_color,$(OBJ_COLOR),ranlib $@)
 
+#	Removing object
+clean:
+	@$(call put_title,Cleaning)
+	@$(RM) $(OBJ_PATH)
+	@$(call cmd_color,$(CLEAN_COLOR),rm -rf $(OBJ))
+
+#	Removeing binary
 fclean : clean
-	@rm -rf $(NAME)
+	@$(RM) $(NAME)
+	@$(call cmd_color,$(CLEAN_COLOR),rm -rf $(NAME))
 
-re : fclean all
+re: fclean all
+
+#	check norme for includes and ./srcs/ files
+norme:
+	@norminette $(SRC) $(INC_PATH) | sed "s/Norme/[0;1;47m\
+	[0;38;5;$(NORME_COLOR)mNorme/g; s/Warning/[38;5;$(NORME_COLOR_WAR)m\
+	Warning/g; s/Error/\[38;5;$(NORME_COLOR_ERR)m Error/g"
+
+.PHONY: all clean fclean re norme test run

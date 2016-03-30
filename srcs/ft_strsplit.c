@@ -30,7 +30,7 @@ static int	ft_nbmot(const char *s, char c)
 	return (i);
 }
 
-static int	ft_strclen(const char *s, char c)
+static int	ft_strclen1(const char *s, char c)
 {
 	int i;
 
@@ -59,8 +59,8 @@ char		**ft_strsplit(const char *s, char c)
 	{
 		if (s[j] != c && (j == 0 || s[j - 1] == c))
 		{
-			res[i] = ft_strnew(ft_strclen(s + j, c));
-			ft_strncpy(res[i], s + j, ft_strclen(s + j, c));
+			res[i] = ft_strnew(ft_strclen1(s + j, c));
+			ft_strncpy(res[i], s + j, ft_strclen1(s + j, c));
 			i++;
 		}
 		j++;

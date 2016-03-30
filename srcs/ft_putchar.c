@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:39:46 by jbelless          #+#    #+#             */
-/*   Updated: 2015/11/24 10:27:17 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/24 10:57:04 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_putchar(char c)
 {
+	static int i = 0;
+
 	write(1, &c, 1);
+	i++;
+	ft_singleton(1);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_singleton.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 08:54:56 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/24 10:35:31 by jbelless         ###   ########.fr       */
+/*   Created: 2016/03/17 16:50:05 by jbelless          #+#    #+#             */
+/*   Updated: 2016/03/18 16:23:46 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+int	ft_singleton(int i)
 {
-	int i;
+	static int sauv = 0;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	if (i == 0)
+		sauv = 0;
+	else if (i == 1)
+		sauv++;
+	return (sauv);
 }
