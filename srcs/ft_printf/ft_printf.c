@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 09:14:41 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/29 17:33:38 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:55:36 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ static char	*ft_read(char *str, t_stu *stu, int *i)
 	while (cont)
 	{
 		if (*str == 'h' || *str == 'l' || *str == 'j' || *str == 'z')
-			ft_parser1(&str, stu);
+			ft_printf_parser1(&str, stu);
 		else if (*str == '#' || *str == '+' || *str == '-' ||
 				*str == ' ' || (*str == '0' && *(str - 1) != '.'))
 			ft_flag(*str, stu);
 		else if (*str == '.' || (*str >= '0' && *str <= '9') || *str == '*')
-			ft_parser2(&str, stu);
+			ft_printf_parser2(&str, stu);
 		else
 		{
-			if (ft_parser3(&str, stu, i) == 1)
+			if (ft_printf_parser3(&str, stu, i) == 1)
 				cont = 0;
 			else
 				return (str);

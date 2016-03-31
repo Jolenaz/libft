@@ -68,7 +68,7 @@ FTPRINTF_SRCS = ft_printf.c \
 		   ft_printf_gru.c \
 		   ft_printf_grc.c \
 		   ft_printf_grs.c \
-		   ft_print_flag.c \
+		   ft_printf_flag.c \
 
 LIBFT_SRCS = ft_atof.c ft_lstmap.c ft_putstr.c ft_strmapi.c \
 			ft_atoi.c ft_lstnew.c ft_putstr_fd.c ft_strncat.c \

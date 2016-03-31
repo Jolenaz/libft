@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 08:03:21 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/29 15:33:57 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:57:52 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	ft_printf_grd(t_stu *stu)
 	}
 	if (stu->prcs >= 0)
 		stu->flag = stu->flag & ~ZEROFLAG;
-	ft_print_flag(stu, str, neg);
+	ft_printf_flag(stu, str, neg);
 	free(nb);
 }

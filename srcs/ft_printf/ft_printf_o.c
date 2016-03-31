@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 16:00:15 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/29 15:33:23 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:57:24 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	ft_printf_o(t_stu *stu)
 		stu->flag = stu->flag & ~DIESFLAG;
 	stu->flag = stu->flag & ~PLUSFLAG;
 	stu->flag = stu->flag & ~ESPFLAG;
-	ft_print_flag(stu, str, 0);
+	ft_printf_flag(stu, str, 0);
 	free(nb);
 }

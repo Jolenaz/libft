@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 09:05:33 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/30 14:55:05 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:54:56 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void			ft_printf_gro(t_stu *stu);
 void			ft_printf_gru(t_stu *stu);
 void			ft_printf_grc(t_stu *stu);
 void			ft_printf_grs(t_stu *stu);
-void			ft_print_flag(t_stu *stu, char *str, int neg);
-void			ft_parser1(char **str, t_stu *stu);
-void			ft_parser2(char **str, t_stu *stu);
-int				ft_parser3(char **str, t_stu *stu, int *i);
+void			ft_printf_flag(t_stu *stu, char *str, int neg);
+void			ft_printf_parser1(char **str, t_stu *stu);
+void			ft_printf_parser2(char **str, t_stu *stu);
+int				ft_printf_parser3(char **str, t_stu *stu, int *i);
 
 #endif

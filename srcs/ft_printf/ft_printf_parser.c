@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 17:31:06 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/29 17:38:29 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:56:48 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_fct(void (*ft_conv[127])(t_stu*))
 	ft_conv['S'] = &ft_printf_grs;
 }
 
-void		ft_parser1(char **str, t_stu *stu)
+void		ft_printf_parser1(char **str, t_stu *stu)
 {
 	if (**str == 'h')
 	{
@@ -71,7 +71,7 @@ void		ft_parser1(char **str, t_stu *stu)
 		stu->mod = z;
 }
 
-void		ft_parser2(char **str, t_stu *stu)
+void		ft_printf_parser2(char **str, t_stu *stu)
 {
 	if (**str == '.')
 	{
@@ -96,7 +96,7 @@ void		ft_parser2(char **str, t_stu *stu)
 	}
 }
 
-int			ft_parser3(char **str, t_stu *stu, int *i)
+int			ft_printf_parser3(char **str, t_stu *stu, int *i)
 {
 	void	(*ft_conv[127])(t_stu*);
 
