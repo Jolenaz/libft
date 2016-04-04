@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 09:14:41 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/31 10:55:36 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/04/04 11:32:36 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,6 @@ static char	*ft_read(char *str, t_stu *stu, int *i)
 	return (str);
 }
 
-static void	ft_read_format(const char *str, t_stu *stu)
-{
-	char	*c;
-	int		i;
-
-	i = 0;
-	c = (char *)str;
-	while (*c)
-	{
-		if (*c == '%')
-			c = ft_read(c + 1, stu, &i);
-		else
-		{
-			ft_putchar(*c);
-			c++;
-		}
-	}
-	stu->nb = i;
-}
-
 static void	ft_init_stu(t_stu *stu)
 {
 	stu->flag = 0;
@@ -84,12 +64,34 @@ static void	ft_init_stu(t_stu *stu)
 	stu->let = -2000000000;
 }
 
+static void	ft_read_format(const char *str, t_stu *stu)
+{
+	char	*c;
+	int		i;
+
+	i = 0;
+	c = (char *)str;
+	while (*c)
+	{
+		if (*c == '%')
+		{
+			ft_init_stu(stu);
+			c = ft_read(c + 1, stu, &i);
+		}
+		else
+		{
+			ft_putchar(*c);
+			c++;
+		}
+	}
+	stu->nb = i;
+}
+
 int			ft_printf(const char *str, ...)
 {
 	int		res;
 	t_stu	stu;
 
-	ft_init_stu(&stu);
 	va_start(stu.ap, str);
 	ft_read_format(str, &stu);
 	res = ft_singleton(-1);
