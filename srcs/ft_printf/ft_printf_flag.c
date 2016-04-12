@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:10:47 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/31 10:57:02 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:44:16 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static void	ft_print_flag2(t_stu *stu, char *str, int neg)
 	}
 }
 
-void		ft_print_flag(t_stu *stu, char *str, int neg)
+void		ft_printf_flag(t_stu *stu, char *str, int neg)
 {
 	if (stu->width > stu->prcs && stu->width > (int)ft_strlen(str))
 	{

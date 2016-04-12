@@ -106,7 +106,7 @@ INC = $(addprefix -I, $(INC_PATH))
 all: $(NAME)
 
 #	linking
-$(OBJ_PATH)%.o:$(SRC_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
 	@$(call cmd_color,$(LINK_COLOR),$(CC) $(CFLAGS) $(INC) -o $@ -c $<)
 
