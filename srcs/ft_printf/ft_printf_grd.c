@@ -6,7 +6,7 @@
 /*   By: jbelless <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 08:03:21 by jbelless          #+#    #+#             */
-/*   Updated: 2016/03/31 10:46:16 by jbelless         ###   ########.fr       */
+/*   Updated: 2016/04/12 15:06:40 by jbelless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_printf_grd(t_stu *stu)
 	int		neg;
 
 	neg = 0;
-	nb = ft_strdup(ft_itoa_base(va_arg(stu->ap, long int), 10));
+	nb = ft_itoa_base(va_arg(stu->ap, long int), 10);
 	str = nb;
 	if (*str == '-')
 	{
